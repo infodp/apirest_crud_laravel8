@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ArticuloController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/articulos', 'App\Http\Controllers\ArticuloController@index'); //mostrar todos los registros
-Route::post('/articulos', 'App\Http\Controllers\ArticuloController@store'); //crear un registro
-Route::put('/articulos/{id}', 'App\Http\Controllers\ArticuloController@update'); //actualizar un registro
-Route::delete('/articulos/{id}', 'App\Http\Controllers\ArticuloController@destroy'); //actualizar un registro
+Route::get('/articulos', [ArticuloController::class,'index']); //muestra todos los registros
+Route::post('/articulos', [ArticuloController::class,'store']); // crea un registro
+Route::put('/articulos/{id}', [ArticuloController::class,'update']); // actualiza un registro
+Route::delete('/articulos/{id}', [ArticuloController::class,'destroy']); //elimina un registro
